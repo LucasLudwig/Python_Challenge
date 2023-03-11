@@ -30,16 +30,14 @@ with open(election_data, newline="") as csvfile:
     stockham_votes = candidate.count("Charles Casper Stockham")
     degette_votes = candidate.count("Diana DeGette")
     doane_votes = candidate.count("Raymon Anthony Doane")
-    otooley_votes = candidate.count("William Bradley O'Tooley")
 
     # The percentage of votes each candidate won
     stockham_percent = round((stockham_votes / total_votes) * 100, 3)
     degette_percent = round((degette_votes / total_votes) * 100, 3)
     li_percent = round((doane_votes / total_votes) * 100, 3)
-    otooley_percent = round((otooley_votes / total_votes) * 100, 3)
 
     # The winner of the election based on popular vote.
-    winner = max(stockham_votes, degette_votes, doane_votes, otooley_votes)
+    winner = max(stockham_votes, degette_votes, doane_votes)
 
     if winner == stockham_votes:
         winner_name = "Charles Casper Stockham"
@@ -47,8 +45,6 @@ with open(election_data, newline="") as csvfile:
         winner_name = "Diana DeGette"
     elif winner == doane_votes:
         winner_name = "Raymon Anthony Doane"
-    else:
-        winner_name = "William Bradley O'Tooley"
 
     # Print the analysis to the terminal
     print("Election Results")
@@ -58,7 +54,6 @@ with open(election_data, newline="") as csvfile:
     print(f"Charles Casper Stockham: {stockham_percent}% ({stockham_votes})")
     print(f"Diana DeGette: {degette_percent}% ({degette_votes})")
     print(f"Raymon Anthony Doane: {li_percent}% ({doane_votes})")
-    print(f"William Bradley O'Tooley: {otooley_percent}% ({otooley_votes})")
     print("-------------------------")
     print(f"Winner: {winner_name}")
     print("-------------------------")
@@ -74,7 +69,6 @@ with open(output_file, "w") as txtfile:
     txtfile.write(f"Charles Casper Stockham: {stockham_percent}% ({stockham_votes})")
     txtfile.write(f"Diana DeGette: {degette_percent}% ({degette_votes})")
     txtfile.write(f"Raymon Anthony Doane: {li_percent}% ({doane_votes})")
-    txtfile.write(f"William Bradley O'Tooley: {otooley_percent}% ({otooley_votes})")
     txtfile.write("-------------------------")
     txtfile.write(f"Winner: {winner_name}")
     txtfile.write("-------------------------")
